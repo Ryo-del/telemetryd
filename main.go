@@ -8,9 +8,15 @@ import (
 )
 
 func main() {
-	x, err := cpu.Percent(time.Second, false)
-	if err != nil {
-		fmt.Println(err)
+	for quantity_repetitions := 1; quantity_repetitions <= 3; quantity_repetitions++ {
+		var y bool = false
+		x, err := cpu.Percent(time.Second, y)
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Println(x[0])
+
+		time.Sleep(3 * time.Second)
 	}
-	fmt.Println(x[0])
+	fmt.Println("end")
 }
